@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 /* ============================================================
    globals.css — Reset + tokens de diseño.
    Única fuente de verdad para estilos: ningún componente
@@ -20,8 +22,8 @@
   --color-rose: #f55cf5;
 
   /* Tipografía */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Yotsuba', 'Satoshi', system-ui, sans-serif;
+  --font-body: 'Satoshi', system-ui, sans-serif;
 
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -105,7 +107,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   text-wrap: balance;
 }

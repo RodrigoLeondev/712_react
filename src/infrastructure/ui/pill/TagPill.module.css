@@ -1,0 +1,39 @@
+.pill {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--color-dark);
+  /* El dato solo aporta el número: la presentación la manda el CSS. */
+  rotate: var(--pill-tilt, 0deg);
+}
+
+/* Tonos: siempre desde los tokens de globals.css. */
+.green {
+  background: var(--color-green);
+}
+
+.purple {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.gold {
+  background: var(--color-gold);
+}
+
+.rose {
+  background: var(--color-rose);
+}
+
+.redOrange {
+  background: var(--color-red-orange);
+  color: var(--color-white);
+}
+
+.white {
+  background: var(--color-white);
+}

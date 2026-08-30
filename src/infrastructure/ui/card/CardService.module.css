@@ -1,0 +1,116 @@
+.acordionCard {
+  width: 98vw;
+  overflow: hidden;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-light) 15%, transparent);
+  border-radius: 10px;
+  transition:
+    color var(--transition-base),
+    background-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.isOpen {
+  background-color: var(--color-red-orange);
+  color: var(--color-white);
+}
+
+.acordionTitle {
+  margin-block: 0;
+  font-size: 50px;
+  font-weight: 100;
+  padding: 0;
+}
+
+.acordionToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  inline-size: 100%;
+  padding: 1.2rem 1.25rem;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 400;
+  min-height: 120px;
+  transition: min-height var(--transition-base)
+}
+
+.acordionToggle:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: -2px;
+  border-radius: var(--radius-lg);
+}
+
+.acordionIcon {
+  --size: 1.75rem;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--size);
+  block-size: var(--size);
+  border-radius: var(--radius-sm);
+  color: inherit;
+}
+
+.acordionIcon svg {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  transition: rotate var(--transition-base);
+}
+
+.horizontalLine {
+  transition: opacity var(--transition-base);
+}
+
+.isOpen .acordionIcon svg {
+  rotate: 90deg;
+}
+
+.isOpen .horizontalLine {
+  opacity: 0;
+}
+
+.acordionContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding-inline: var(--space-md);
+  transition: grid-template-rows var(--transition-base), padding var(--transition-base);
+}
+
+.acordionContent > div {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  padding-block-end: 0;
+  font-size: 1.03rem;
+  line-height: 1.6;
+}
+
+.acordionContent > div p {
+  margin-block: 0;
+  padding-block: 0.5rem 0;
+  font-size: 24px;
+  padding-block-end: 0.5rem;
+}
+
+.isOpen .acordionContent {
+  grid-template-rows: 1fr;
+  padding-block-end: var(--space-md);
+}
+
+.isOpen .acordionContent > div {
+  min-height: 220px;
+  padding-block-end: var(--space-md);
+  min-height: 0;
+}
+
+.isOpen .acordionToggle {
+  padding-block-end: 0.75rem;
+}

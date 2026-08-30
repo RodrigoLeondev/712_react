@@ -1,0 +1,94 @@
+/* Los keyframes van declarados aquí, no en un CSS global: CSS Modules
+   hashea también el nombre en la propiedad `animation`, así que la
+   referencia solo resuelve si el @keyframes vive en este mismo módulo. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  position: relative;
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logoWrap {
+  margin-bottom: 3rem;
+  will-change: opacity;
+}
+
+.logo {
+  height: 4rem;
+  width: auto;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.title {
+  margin-inline: auto;
+  max-width: 72rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-white);
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.25em;
+  color: var(--color-white);
+  opacity: 0;
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* Palabras destacadas del titular. */
+.green {
+  color: var(--color-green);
+}
+
+.redOrange {
+  color: var(--color-red-orange);
+}
+
+.rose {
+  color: var(--color-rose);
+}
+
+@media (min-width: 40rem) {
+  .logo {
+    height: 5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+/* La entrada escalonada se muestra completa de golpe. */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .hero * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
