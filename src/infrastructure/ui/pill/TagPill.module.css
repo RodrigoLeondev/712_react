@@ -1,9 +1,14 @@
 .pill {
   display: inline-block;
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 1.4rem;
   border-radius: var(--radius-pill);
+  /* Tipografía propia y no heredada: la pill puede caer dentro de un
+     titular con otra fuente, mayúsculas y letter-spacing negativo. */
+  font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
   line-height: 1.2;
   white-space: nowrap;
   color: var(--color-dark);

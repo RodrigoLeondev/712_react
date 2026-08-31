@@ -18,4 +18,5 @@ export const COLORS = {
   redOrange: '#fd1417',
   purple: '#5614e8',
   rose: '#f55cf5',
+  grey: '#C6C6C8',
 } as const;

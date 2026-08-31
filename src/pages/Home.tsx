@@ -2,6 +2,7 @@ import Nav from '@/domain/navigation/Nav';
 import HeroContent from '@/domain/showcase/HeroContent';
 import HeroVideo from '@/domain/showcase/HeroVideo';
 import Services from '@/domain/services/Services';
+import About from '@/domain/about/About';
 import BaseLayout from '@/infrastructure/layouts/BaseLayout/BaseLayout';
 import { HERO } from '@/infrastructure/lib/constants/hero';
 import styles from './Home.module.css';
@@ -25,6 +26,9 @@ export default function Home() {
         <div className={styles.servicesInner}>
          <Services /> 
         </div>
+      </section>
+      <section id="about" className={styles.about}>
+        <About />
       </section>
     </BaseLayout>
   );

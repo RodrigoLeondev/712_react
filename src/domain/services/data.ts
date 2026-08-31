@@ -21,7 +21,7 @@ export const dataServices: Service[] = [
     ],
   },
   {
-    title: 'CONTENIDO UGG',
+    title: 'CONTENIDO UGC',
     content:
       'Conceptualización y producción de contenido white label para uso en redes sociales de marca, dirección creativa y consistencia narrativa entre las piezas de un mismo concepto.',
     pills: [
