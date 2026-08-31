@@ -4,6 +4,10 @@ import Title from '@/infrastructure/ui/text/Title';
 import styles from './About.module.css';
 import StackedCard from '@/domain/about/StackedCard';
 import CollapseStack from '@/domain/about/CollapseStack';
+import TagPill from '@/infrastructure/ui/pill/TagPill';
+import YouTubeEmbed from '@/infrastructure/ui/video/YouTubeEmbed';
+
+const PORTAFOLIO_VIDEO_URL = 'https://youtu.be/YplOIN2JRBw';
 
 export default function About() {
   const { ref, progress } = useScrollProgress<HTMLDivElement>();
@@ -35,7 +39,12 @@ export default function About() {
         <div className={styles.cardCollapsed}>
           <CollapseStack />
         </div>
-        <div className={styles.video}></div>
+        <div className={styles.video}>
+          <div className={styles.videoLabel}>
+            <TagPill label="Portafolio" tone='redOrange' tilt={-4.2} size="lg" />
+          </div>
+          <YouTubeEmbed videoUrl={PORTAFOLIO_VIDEO_URL} title="Portafolio 712" />
+        </div>
       </div>
     </>
   );

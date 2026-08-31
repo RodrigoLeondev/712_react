@@ -9,8 +9,8 @@ export type PillTone =
 export interface PillItem {
   label: string;
   tone?: PillTone;
-  /** Inclinación en grados; negativo a la izquierda, positivo a la derecha. */
   tilt?: number;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export type TagPillProps = PillItem;

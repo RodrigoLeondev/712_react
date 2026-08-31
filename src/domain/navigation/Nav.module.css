@@ -1,4 +1,6 @@
 .nav {
+  --nav-collapse: 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
   position: sticky;
   top: 0;
   left: 0;
@@ -8,6 +10,8 @@
   justify-content: center;
   gap: 2rem;
   padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
   background: transparent;
   transition: all 0.4s ease;
   z-index: 1000;
@@ -19,16 +23,11 @@
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* Logo y botón ocupan el espacio sobrante a cada lado del menú. Al
-   hacer scroll dejan de crecer y quedan pegados al menú: la animación
-   es del flex-grow, así que no depende de anchos fijos ni del viewport. */
 .logo {
-  /* basis auto y sin shrink: Logo.svg no tiene ancho intrínseco (solo
-     viewBox), así que con basis 0 la caja colapsaría al dejar de crecer. */
   flex: 1 0 auto;
   display: flex;
   justify-content: flex-start;
-  transition: flex-grow 0.4s ease;
+  transition: flex-grow var(--nav-collapse);
   color: white;
 }
 
@@ -51,7 +50,7 @@
   flex: 1 0 auto;
   display: flex;
   justify-content: flex-end;
-  transition: flex-grow 0.4s ease;
+  transition: flex-grow var(--nav-collapse);
 }
 
 .contactButton button {
@@ -59,12 +58,22 @@
   background: var(--color-red-orange);
   border: none;
   border-radius: 10px;
-  padding: 5px;
+  padding: 0.5em 1.25em;
   cursor: pointer;
 }
 
-/* Colapso: ambos lados dejan de crecer y el grupo queda centrado. */
 .nav.scrolled .logo,
 .nav.scrolled .contactButton {
   flex-grow: 0;
+}
+
+@media (max-width: 64rem) {
+  .nav {
+    gap: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .menuList {
+    gap: 1.25rem;
+  }
 }
