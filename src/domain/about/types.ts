@@ -3,6 +3,7 @@ export interface CollapseItemData {
   title: string;
   accent?: string;
   text: string;
+  subtitle?: string;
 }
 
 export interface CollapseItemProps extends CollapseItemData {

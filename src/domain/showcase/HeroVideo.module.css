@@ -1,5 +1,3 @@
-/* Pista alta: el scroll dentro de estos 200vh alimenta el progreso
-   de la animación. El margen negativo mete el video bajo el titular. */
 .track {
   position: relative;
   width: 100%;
@@ -19,7 +17,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(80vw, 1150px);
+  width: min(80vw, 160dvh);
   will-change: transform;
 }
 

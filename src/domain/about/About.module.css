@@ -1,7 +1,7 @@
 
 .stage {
   --line: 250px;     
-  --layer-h: 700px;   
+  --layer-h: 800px;   
   --shift: 90px;      
 
 
@@ -52,18 +52,17 @@
 }
 
 .portafolio {
+  --card-h: 720px;
+
   margin: 80px auto 80px auto;
   width: 100vw;
-  height: 700px;
-  background: var(--color-grey);
+  height: calc(var(--card-h) + var(--space-xl) * 2);
   display: flex;
   justify-content: center;
 }
 
-/* Solo contenedor de posición: el fondo blanco lo pone la card. */
 .cardCollapsed {
   width: 90%;
-  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;

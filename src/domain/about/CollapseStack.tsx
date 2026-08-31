@@ -12,10 +12,7 @@ export default function CollapseStack() {
         {collapseItems.map((item, i) => (
           <CollapseItem
             key={item.id}
-            id={item.id}
-            title={item.title}
-            accent={item.accent}
-            text={item.text}
+            {...item}
             isOpen={openIndex === i}
             onToggle={() => setOpenIndex(openIndex === i ? null : i)}
           />

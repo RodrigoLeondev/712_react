@@ -5,11 +5,14 @@ import styles from './CollapseItem.module.css';
 export default function CollapseItem({
   title,
   accent,
+  subtitle,
   text,
   isOpen,
   onToggle,
 }: CollapseItemProps) {
   const contentId = useId();
+
+  const isFeatured = Boolean(subtitle);
 
   return (
     <div className={`${styles.item} ${isOpen ? styles.isOpen : ''}`}>
@@ -21,9 +24,10 @@ export default function CollapseItem({
           aria-controls={contentId}
           onClick={onToggle}
         >
-          <span className={styles.title}>
-            {title}
+          <span className={`${styles.title} ${isFeatured ? styles.featured : ''}`}>
+            {isFeatured ? <span className={styles.lead}>{title}</span> : title}
             {accent && <span className={styles.accent}> {accent}</span>}
+            {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
           </span>
 
           <span className={styles.chevron} aria-hidden="true">

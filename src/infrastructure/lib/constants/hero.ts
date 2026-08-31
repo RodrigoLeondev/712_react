@@ -1,4 +1,3 @@
-/** Contenido del hero. Los componentes lo reciben por props desde la página. */
 export const HERO = {
   badgeText: 'Creative Studio',
   title:

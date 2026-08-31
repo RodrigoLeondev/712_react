@@ -10,7 +10,6 @@ export default function About() {
 
   return (
     <>
-      {/* Escenario del parallax: título, cuadro y animación superpuestos. */}
       <div
         ref={ref}
         className={styles.stage}

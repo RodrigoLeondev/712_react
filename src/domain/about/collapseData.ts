@@ -3,8 +3,9 @@ import type { CollapseItemData } from '@/domain/about/types';
 export const collapseItems: CollapseItemData[] = [
   {
     id: 'proyectos',
-    title: '+ DE 100 PROYECTOS EXITOSOS',
+    title: '+100',
     accent: 'O RETRASOS',
+    subtitle: 'PROYECTOS EXITOSOS',
     text: 'Todos los proyectos están respaldados por una garantía de entrega. En 712 valoramos la confianza y el tiempo, y con un esquema definido para cada proyecto reafirmamos nuestro papel como extensión del equipo de cada cliente.',
   },
   {
