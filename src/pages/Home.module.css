@@ -1,0 +1,31 @@
+.hero {
+  position: relative;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 9.5rem;
+  padding-bottom: 6rem;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  padding-top: 9.5rem;
+  padding-bottom: 6rem;
+}
+
+.servicesInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+.about {
+  padding-top: 9.5rem;
+  padding-bottom: 6rem;
+}

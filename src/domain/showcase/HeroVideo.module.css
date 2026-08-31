@@ -1,0 +1,23 @@
+.track {
+  position: relative;
+  width: 100%;
+  min-height: 200vh;
+  margin-top: -45vh;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(80vw, 160dvh);
+  will-change: transform;
+}
+

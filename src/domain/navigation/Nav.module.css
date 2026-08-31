@@ -1,32 +1,34 @@
 .nav {
+  --nav-collapse: 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: center;
+  gap: 2rem;
   padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
   background: transparent;
   transition: all 0.4s ease;
   z-index: 1000;
 }
 
 .nav.scrolled {
-  justify-content: center;  /* todo al centro */
   background: var(--color-primary);
   padding: 0.5rem 2rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .logo {
-  transition: transform 0.4s ease;
-  color: white
-}
-
-.nav.scrolled .logo {
-  transform: translateX(calc(50vw - 50% - 50px)); /* ajusta según necesidad */
-  /* O usa order y flex para reorganizar */
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  transition: flex-grow var(--nav-collapse);
+  color: white;
 }
 
 .menu {
@@ -45,19 +47,33 @@
 }
 
 .contactButton {
-  transition: transform 0.4s ease;
-  background: var(--color-red-orange);
-  border-radius: 10px;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  transition: flex-grow var(--nav-collapse);
 }
 
 .contactButton button {
   color: var(--color-white);
-  background: transparent;
+  background: var(--color-red-orange);
   border: none;
-  padding: 5px;
+  border-radius: 10px;
+  padding: 0.5em 1.25em;
   cursor: pointer;
 }
 
+.nav.scrolled .logo,
 .nav.scrolled .contactButton {
-  transform: translateX(calc(-50vw + 50% + 50px));
+  flex-grow: 0;
+}
+
+@media (max-width: 64rem) {
+  .nav {
+    gap: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .menuList {
+    gap: 1.25rem;
+  }
 }

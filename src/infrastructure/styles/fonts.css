@@ -1,0 +1,48 @@
+/* ============================================================
+   Fuentes propias. font-display: swap para que el texto se vea
+   desde el primer frame con la de respaldo y salte a la real.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Satoshi';
+  src:
+    url('/fonts/Satoshi-Regular.woff2') format('woff2'),
+    url('/fonts/Satoshi-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src:
+    url('/fonts/Satoshi-Medium.woff2') format('woff2'),
+    url('/fonts/Satoshi-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src:
+    url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+    url('/fonts/Satoshi-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Yotsuba — cobertura completa del español, con GPOS/GSUB.
+
+   font-weight: 400 es el peso real del archivo (usWeightClass 400) y viene
+   en un solo peso. Se declara tal cual para que, al pedir 700 en los
+   títulos, el navegador fabrique la negrita sintética; con un rango
+   100-900 resolvería todo al mismo archivo y nunca se vería en bold. */
+@font-face {
+  font-family: 'Yotsuba';
+  src: url('/fonts/Yotsuba.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

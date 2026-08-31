@@ -1,0 +1,17 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  /* Da aire para que la rotación no se recorte contra el overflow
+     hidden del contenedor que anima la altura. */
+  padding-block: 0.5rem;
+}
+
+/* Inclinación por defecto. El tilt del dato la pisa, por ser inline. */
+.group > *:nth-child(odd) {
+  --pill-tilt: -2.5deg;
+}
+
+.group > *:nth-child(even) {
+  --pill-tilt: 2deg;
+}
