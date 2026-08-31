@@ -60,10 +60,13 @@
   justify-content: center;
 }
 
+/* Solo contenedor de posición: el fondo blanco lo pone la card. */
 .cardCollapsed {
   width: 90%;
   height: 90%;
-  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .video {

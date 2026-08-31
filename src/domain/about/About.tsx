@@ -3,6 +3,7 @@ import { useScrollProgress } from '@/infrastructure/lib/hooks/useScrollProgress'
 import Title from '@/infrastructure/ui/text/Title';
 import styles from './About.module.css';
 import StackedCard from '@/domain/about/StackedCard';
+import CollapseStack from '@/domain/about/CollapseStack';
 
 export default function About() {
   const { ref, progress } = useScrollProgress<HTMLDivElement>();
@@ -32,7 +33,9 @@ export default function About() {
         />
       </div>
       <div className={styles.portafolio}>
-        <div className={styles.cardCollapsed}></div>
+        <div className={styles.cardCollapsed}>
+          <CollapseStack />
+        </div>
         <div className={styles.video}></div>
       </div>
     </>
