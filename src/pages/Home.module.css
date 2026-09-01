@@ -11,18 +11,20 @@
 }
 
 .services {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  padding-bottom: var(--space-sm);
   padding-top: 9.5rem;
   padding-bottom: 6rem;
 }
 
 .servicesInner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  margin-top: -5.5rem;
   padding-bottom: var(--space-sm);
 }
 .about {
