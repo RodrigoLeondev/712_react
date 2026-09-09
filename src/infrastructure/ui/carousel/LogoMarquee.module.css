@@ -1,0 +1,92 @@
+.carousel {
+  --gap: var(--space-lg);
+  --logo-h: 2.25rem;
+
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  gap: var(--gap);
+  animation: marquee 28s linear infinite;
+}
+
+.carousel:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--gap);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: var(--logo-h);
+  opacity: 0.55;
+  transition: opacity var(--transition-base);
+}
+
+.item:hover {
+  opacity: 1;
+}
+
+.item img {
+  height: 100%;
+  width: auto;
+  filter: grayscale(1) brightness(0) invert(1);
+  transition: filter var(--transition-base);
+}
+
+.item:hover img {
+  filter: none;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - var(--gap) / 2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .track {
+    animation: none;
+    width: 100%;
+  }
+
+  .group {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: var(--space-md);
+  }
+
+  .group[aria-hidden='true'] {
+    display: none;
+  }
+}

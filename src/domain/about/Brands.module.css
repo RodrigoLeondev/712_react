@@ -1,0 +1,27 @@
+.brands {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-block: var(--space-xl) var(--space-lg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.firstWord {
+  position: relative;
+}
+
+.cornerPill {
+  position: absolute;
+  top: -0.55em;
+  left: -0.35em;
+  z-index: 5;
+}
