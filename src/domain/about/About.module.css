@@ -2,12 +2,18 @@
 .stage {
   --leading: 1;
   --layer-h: 910px;
-  --shift: 70px;
+  --layer-top: -40px;
+  --ink-ratio: 0.8100;
+  --shift-max: 70px;
+  --overlap: 60px;
 
-  --layer-shift: calc((0.5 - var(--p, 0.5)) * -140px);
+  --layer-shift: calc((0.5 - var(--p, 0.5)) * var(--shift-max) * -2);
 
   position: relative;
-  min-height: calc(var(--layer-h) + var(--shift));
+  min-height: calc(
+    var(--layer-top) + var(--layer-h) * var(--ink-ratio) + var(--shift-max) -
+      var(--overlap)
+  );
   overflow: hidden;
 }
 
@@ -33,7 +39,7 @@
 
 .anim {
   position: absolute;
-  top: -10px;
+  top: var(--layer-top);
   left: 50%;
   z-index: 2;
   height: var(--layer-h);
@@ -42,22 +48,24 @@
   aspect-ratio: 1;
   opacity: 0.9;
   translate: -50% var(--layer-shift);
+  margin-bottom: 0;
 }
 
 .cards {
-  width: 100%;
-  padding-inline: var(--space-md);
+  width: 70vw;
+  padding: 0;
   margin-inline: auto;
 }
 
 .portafolio {
   --card-h: 720px;
 
-  margin: 80px auto 80px auto;
+  margin: 0 auto 80px auto;
   width: 100%;
   height: calc(var(--card-h) + var(--space-xl) * 2);
   display: flex;
   justify-content: center;
+  padding-top: 0;
 }
 
 .cardCollapsed {

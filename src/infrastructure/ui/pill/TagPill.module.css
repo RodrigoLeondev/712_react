@@ -13,6 +13,11 @@
   rotate: var(--pill-tilt, 0deg);
 }
 
+.wrap {
+  white-space: pre-line;
+  text-align: center;
+}
+
 .lg {
   padding: 0.45rem 1rem;
   font-size: var(--text-lg);
