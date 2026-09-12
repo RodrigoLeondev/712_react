@@ -21,17 +21,18 @@
   --color-purple: #5614e8;
   --color-rose: #f55cf5;
   --color-grey: #c6c6c8;
+  --color-blue: #6f9fff;
 
   /* Tipografía */
   --font-display: 'Yotsuba', 'Satoshi', system-ui, sans-serif;
   --font-body: 'Satoshi', system-ui, sans-serif;
 
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: clamp(1.25rem, 2vw, 1.5rem);
-  --text-2xl: clamp(1.75rem, 3.5vw, 2.5rem);
-  --text-3xl: clamp(2.5rem, 6vw, 4.5rem);
+  --text-sm: clamp(0.75rem, 0.71rem + 0.19vw, 0.875rem);
+  --text-base: clamp(0.84rem, 0.79rem + 0.23vw, 1rem);
+  --text-lg: clamp(0.94rem, 0.88rem + 0.28vw, 1.125rem);
+  --text-xl: clamp(1.06rem, 0.92rem + 0.65vw, 1.5rem);
+  --text-2xl: clamp(1.38rem, 1rem + 1.67vw, 2.5rem);
+  --text-3xl: clamp(2rem, 1.17rem + 3.7vw, 4.5rem);
 
   /* Espaciado */
   --space-xs: 0.5rem;

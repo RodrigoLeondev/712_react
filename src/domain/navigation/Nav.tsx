@@ -7,7 +7,8 @@ export default function Nav() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.logo}>
-            <img src="/Logo.svg" alt="Logo" style={{ display: 'block', width: 120 }} />        </div>
+            <img src="/Logo.svg" alt="Logo" />
+        </div>
         <div className={styles.menu}>
             <ul className={styles.menuList}>
                 <li><a href="/">Inicio</a></li>

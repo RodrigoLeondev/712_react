@@ -8,10 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1.4vw, 2rem);
+  padding: 1rem clamp(1rem, 2.2vw, 2rem);
   font-family: var(--font-body);
-  font-size: var(--text-xl);
+  font-size: clamp(0.85rem, 0.72rem + 0.6vw, 1.125rem);
   background: transparent;
   transition: all 0.4s ease;
   z-index: 1000;
@@ -19,35 +20,42 @@
 
 .nav.scrolled {
   background: var(--color-primary);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem clamp(1rem, 2.2vw, 2rem);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .logo {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  min-inline-size: 0;
   display: flex;
   justify-content: flex-start;
   transition: flex-grow var(--nav-collapse);
   color: white;
 }
 
+.logo img {
+  inline-size: clamp(5.25rem, 8.3vw, 7.5rem);
+  block-size: auto;
+}
+
 .menu {
   display: flex;
-  gap: 2rem;
+  gap: clamp(0.75rem, 1.4vw, 2rem);
   transition: all 0.4s ease;
 }
 
 .menuList {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: clamp(0.75rem, 1.4vw, 2rem);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .contactButton {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  min-inline-size: 0;
   display: flex;
   justify-content: flex-end;
   transition: flex-grow var(--nav-collapse);
@@ -67,13 +75,24 @@
   flex-grow: 0;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 48rem) {
   .nav {
-    gap: 1rem;
-    padding-inline: 1rem;
+    row-gap: 0.5rem;
+  }
+
+  .logo,
+  .contactButton {
+    flex: 0 0 auto;
+  }
+
+  .menu {
+    order: 3;
+    inline-size: 100%;
+    justify-content: center;
   }
 
   .menuList {
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

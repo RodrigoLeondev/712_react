@@ -1,11 +1,11 @@
 
 .stage {
   --leading: 1;
-  --layer-h: 910px;
-  --layer-top: -40px;
+  --layer-h: min(910px, 63.2vw);
+  --layer-top: max(-40px, -2.8vw);
   --ink-ratio: 0.8100;
-  --shift-max: 70px;
-  --overlap: 60px;
+  --shift-max: min(70px, 4.9vw);
+  --overlap: min(60px, 4.2vw);
 
   --layer-shift: calc((0.5 - var(--p, 0.5)) * var(--shift-max) * -2);
 
@@ -26,11 +26,11 @@
 
 .box {
   position: absolute;
-  top: 150px;
+  top: min(150px, 10.4vw);
   left: 50%;
   z-index: 1;
   width: 20%;
-  height: 470px;
+  height: min(470px, 32.6vw);
   background: var(--color-grey);
   opacity: 0.2;
   border-radius: 100px 100px 0 0;
@@ -62,14 +62,16 @@
 
   margin: 0 auto 80px auto;
   width: 100%;
-  height: calc(var(--card-h) + var(--space-xl) * 2);
+  min-height: calc(var(--card-h) + var(--space-xl) * 2);
   display: flex;
+  align-items: center;
   justify-content: center;
   padding-top: 0;
 }
 
 .cardCollapsed {
   flex: 1;
+  min-inline-size: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,6 +79,7 @@
 
 .video {
   flex: 1;
+  min-inline-size: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,6 +90,20 @@
 .videoLabel {
   display: flex;
   justify-content: flex-start;
+}
+
+@media (max-width: 64rem) {
+  .cards {
+    width: 86vw;
+  }
+
+  .portafolio {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xl);
+    min-height: 0;
+    padding-inline: var(--section-padding-x);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

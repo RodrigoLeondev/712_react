@@ -1,5 +1,5 @@
 .title {
-    font-size: 250px;
+    font-size: clamp(3rem, 17.36vw, 250px);
     font-weight: 100;
     color: #C4CCD5;
     text-align: center;

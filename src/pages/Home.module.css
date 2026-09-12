@@ -31,3 +31,17 @@
   padding-top: 9.5rem;
   padding-bottom: 6rem;
 }
+
+.collaborate {
+  padding-top: 9.5rem;
+  padding-bottom: 6rem;
+  padding-inline: var(--section-padding-x);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  padding-top: 9.5rem;
+  padding-bottom: 12rem;
+  padding-inline: var(--section-padding-x);
+}

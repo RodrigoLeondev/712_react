@@ -18,7 +18,7 @@
 
 .acordionTitle {
   margin-block: 0;
-  font-size: 50px;
+  font-size: clamp(1.5rem, 3.47vw, 50px);
   font-weight: 100;
   padding: 0;
 }
@@ -29,7 +29,7 @@
   justify-content: space-between;
   gap: var(--space-sm);
   inline-size: 100%;
-  padding: 1.2rem 1.25rem;
+  padding: clamp(0.85rem, 1.4vw, 1.2rem) clamp(0.9rem, 1.5vw, 1.25rem);
   font: inherit;
   color: inherit;
   text-align: start;
@@ -37,7 +37,7 @@
   border: 0;
   cursor: pointer;
   font-weight: 400;
-  min-height: 120px;
+  min-height: clamp(4.5rem, 8.3vw, 120px);
   transition: min-height var(--transition-base)
 }
 
@@ -96,7 +96,7 @@
 .acordionContent > div p {
   margin-block: 0;
   padding-block: 0.5rem 0;
-  font-size: 24px;
+  font-size: var(--text-xl);
   padding-block-end: 0.5rem;
 }
 

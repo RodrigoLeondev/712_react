@@ -4,9 +4,10 @@
 .container {
     position: relative;
     isolation: isolate;
+    container-type: inline-size;
     width: 100%;
     margin-inline: auto;
-    min-height: 350px;
+    min-height: 34.7cqw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,12 +20,11 @@
 .stack {
     position: relative;
     width: 100%;
-    min-height: 00px;
-    padding: 20px;
+    padding: 2cqw;
     box-sizing: border-box;
     background: var(--color-white);
     border: 2px solid var(--color-dark);
-    border-radius: 25px;
+    border-radius: 2.5cqw;
     box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
     overflow: visible;
 }
@@ -39,47 +39,49 @@
     height: 100%;
     background: var(--color-white);
     border: 2px solid var(--color-dark);
-    border-radius: 25px;
+    border-radius: 2.5cqw;
     translate: -50% 0;
 }
 
 /* Intermedia: más estrecha que la principal y asoma un poco. */
 .stack::before {
     width: 92%;
-    bottom: -18px;
+    bottom: -1.8cqw;
     z-index: -1;
 }
 
 /* Trasera: la más estrecha y la que más asoma. */
 .stack::after {
     width: 84%;
-    bottom: -36px;
+    bottom: -3.6cqw;
     z-index: -2;
 }
 
 .title {
     font-family: var(--font-display);
-    font-size: 180px;
+    font-size: 16.8cqw;
     font-weight: 400;
     text-align: center;
-    margin-top: 30px;
+    white-space: nowrap;
+    margin-top: 0.167em;
     margin-bottom: 0;
     line-height: 1;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: -0.006em;
     color: var(--color-dark);
 }
 
 .title2{
     font-family: var(--font-display);
-    font-size: 180px;
+    font-size: 16.8cqw;
     font-weight: 400;
     text-align: center;
-    margin-top: -50px;
+    white-space: nowrap;
+    margin-top: -0.278em;
     margin-bottom: 0;
     line-height: 1;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: -0.006em;
     color: var(--color-dark);
 }
 
@@ -91,14 +93,14 @@
 
 .cornerPill {
     position: absolute;
-    top: -7.6rem;
-    left: -3.2rem;
+    top: -0.676em;
+    left: -0.284em;
     z-index: 5;
 }
 
 .textBox {
-    border-radius: 10px;
-    padding-bottom: 30px;
+    border-radius: 1cqw;
+    padding-bottom: 3cqw;
     margin: 0 auto;
     width: 90%;
     text-align: center;
@@ -109,7 +111,7 @@
 
 .textBox p {
     margin: 0;
-    font-size: 30px;
+    font-size: clamp(0.8rem, 2.8cqw, 1.875rem);
     margin-top: 0;
     font-weight: 500;
     font-family: var(--font-body);
@@ -120,10 +122,14 @@
 /* Decoración de la esquina */
 .sparkle {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
+    top: 2cqw;
+    right: 3cqw;
+    font-size: clamp(1rem, 3.97cqw, 2.5rem);
     color: #ffffff;
     text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
     z-index: 3;
+}
+.cornerPill > span {
+    font-size: 0.078em;
+    padding: 0.46em 1.6em;
 }

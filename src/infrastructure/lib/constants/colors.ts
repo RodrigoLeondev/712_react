@@ -19,4 +19,5 @@ export const COLORS = {
   purple: '#5614e8',
   rose: '#f55cf5',
   grey: '#C6C6C8',
+  blue: '#6F9FFF',
 } as const;
