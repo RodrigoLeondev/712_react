@@ -10,6 +10,8 @@ export default function ContactForm() {
     <form className={styles.form} onSubmit={onSubmit} noValidate={false}>
       <h3 className={styles.title}>Cuéntanos un poco</h3>
 
+      <input type="hidden" name="from_name" value="Landing 712" />
+
       <input
         type="checkbox"
         name={HONEYPOT_FIELD}

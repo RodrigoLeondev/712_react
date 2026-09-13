@@ -11,6 +11,9 @@ export default function Newsletter() {
         Join our newsletter
       </label>
 
+      <input type="hidden" name="subject" value="Nueva suscripción al newsletter" />
+      <input type="hidden" name="from_name" value="Landing 712" />
+
       <input
         type="checkbox"
         name={HONEYPOT_FIELD}
