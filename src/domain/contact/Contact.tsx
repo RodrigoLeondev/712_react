@@ -6,7 +6,10 @@ export default function Contact() {
   return (
     <>
       <p className={styles.subtitle}>
-        <span>¿Tienes un proyecto?</span>
+        <span>
+          ¿Tienes un <span className={styles.highlight}>proyec</span>
+          <span className={styles.tail}>to?</span>
+        </span>
         <span>{"We're happy to help!"}</span>
       </p>
 
