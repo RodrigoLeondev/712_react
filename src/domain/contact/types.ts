@@ -5,4 +5,6 @@ export interface ContactField {
   type?: string;
   half?: boolean;
   multiline?: boolean;
+  required?: boolean;
+  maxLength?: number;
 }

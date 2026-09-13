@@ -35,3 +35,11 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'The Youngest';
+  src: url('/fonts/TheYoungestSerif-Display.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

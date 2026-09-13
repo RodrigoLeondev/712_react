@@ -36,7 +36,7 @@ export default function YouTubeEmbed({
     loop: '1',
     ...(videoId ? { playlist: videoId } : {}),
   });
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
 
   useEffect(() => {
     const postMessage = (action: 'playVideo' | 'pauseVideo') => {
