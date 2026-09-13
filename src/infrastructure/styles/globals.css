@@ -22,6 +22,7 @@
   --color-rose: #f55cf5;
   --color-grey: #c6c6c8;
   --color-blue: #6f9fff;
+  --color-title: #c4ccd5;
 
   /* Tipografía */
   --font-display: 'Yotsuba', 'Satoshi', system-ui, sans-serif;
@@ -33,6 +34,10 @@
   --text-xl: clamp(1.06rem, 0.92rem + 0.65vw, 1.5rem);
   --text-2xl: clamp(1.38rem, 1rem + 1.67vw, 2.5rem);
   --text-3xl: clamp(2rem, 1.17rem + 3.7vw, 4.5rem);
+  --text-4xl: clamp(2.5rem, 1.4rem + 4.8vw, 5.5rem);
+
+  --title-size: clamp(3rem, 17.36vw, 250px);
+  --title-overlap: 0.35;
 
   /* Espaciado */
   --space-xs: 0.5rem;
@@ -44,6 +49,11 @@
   --section-padding-y: clamp(4rem, 8vw, 8rem);
   --section-padding-x: clamp(1.5rem, 5vw, 6rem);
   --container-max: 1200px;
+  --content-max: 1680px;
+
+  --nav-h: 4.75rem;
+  --section-pt: 9.5rem;
+  --section-pb: 6rem;
 
   /* Movimiento */
   --transition-base: 0.3s ease;
@@ -57,7 +67,37 @@
   /* Capas */
   --z-base: 1;
   --z-overlay: 10;
-  --z-nav: 100;
+  --z-nav: 1000;
+}
+
+@media (max-width: 64rem) {
+  :root {
+    --nav-h: 5rem;
+    --section-pt: 6rem;
+    --section-pb: 4.5rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --section-pt: 4.5rem;
+    --section-pb: 3.5rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  :root {
+    --section-pt: 3.25rem;
+    --section-pb: 3rem;
+  }
+}
+
+@media (min-width: 120rem) {
+  :root {
+    --section-pt: 12rem;
+    --section-pb: 8rem;
+    --title-size: clamp(3rem, 17.36vw, 320px);
+  }
 }
 
 /* ---------- Reset ---------- */
@@ -75,10 +115,17 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + var(--space-sm));
+  overflow-x: clip;
+}
+
+html[data-scroll-locked] {
+  overflow: hidden;
 }
 
 body {
   min-height: 100dvh;
+  overflow-x: clip;
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.6;

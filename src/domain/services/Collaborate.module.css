@@ -2,7 +2,7 @@
   container-type: inline-size;
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: var(--space-lg);
+  column-gap: 3.8%;
   margin-bottom: var(--space-xl);
 }
 
@@ -10,6 +10,10 @@
   grid-column: 1 / -1;
   grid-row: 1;
   margin-bottom: var(--space-sm);
+}
+
+.pill span {
+  padding-inline: 0.85rem;
 }
 
 .title {
@@ -30,6 +34,8 @@
 .lineOne {
   grid-column: 1;
   grid-row: 2;
+  align-self: center;
+  translate: 0 0.09em;
 }
 
 .lead {
@@ -39,7 +45,7 @@
   margin: 0;
   font-family: var(--font-body);
   font-size: 2.06cqw;
-  line-height: 1.35;
+  line-height: 1.15;
   color: var(--color-white);
 }
 
@@ -63,32 +69,13 @@
 }
 
 @media (max-width: 64rem) {
-  .header {
-    grid-template-columns: 1fr;
-    row-gap: var(--space-sm);
-  }
-
-  .lineOne {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .lead {
-    grid-column: 1;
-    grid-row: 3;
-    align-self: start;
-    font-size: var(--text-xl);
-    line-height: 1.6;
-  }
-
-  .lineTwo {
-    grid-column: 1;
-    grid-row: 4;
-    width: 100%;
-    font-size: 18.7cqw;
-  }
-
   .showcase {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 48rem) {
+  .lead {
+    font-size: 2.9cqw;
   }
 }

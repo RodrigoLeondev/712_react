@@ -1,6 +1,6 @@
 .footer {
   padding-top: clamp(8rem, 14vw, 15rem);
-  padding-bottom: clamp(5rem, 9vw, 9rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
   padding-inline: var(--section-padding-x);
   background-color: var(--color-dark);
 }
@@ -14,12 +14,12 @@
   position: absolute;
   inset-inline: calc(var(--section-padding-x) * -1);
   top: 60%;
-  height: 70%;
+  bottom: -4.5rem;
   z-index: -3;
   display: grid;
   align-items: end;
   justify-items: center;
-  padding-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
   background: var(--color-red-orange);
   border-block: 2px solid var(--color-dark);
 }
@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   column-gap: var(--space-xl);
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   background: var(--color-white);
   border: 2px solid var(--color-dark);
   border-radius: 25px;
@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .logo {
@@ -84,7 +84,7 @@
 .title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.2vw, 3.75rem);
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
   font-weight: 400;
   line-height: 0.92;
   text-transform: uppercase;
@@ -100,7 +100,7 @@
 .aside {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .navList {
@@ -132,7 +132,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
-  padding-top: var(--space-md);
+  padding-top: var(--space-sm);
   border-top: 1px solid color-mix(in srgb, var(--color-dark) 20%, transparent);
 }
 
@@ -176,7 +176,7 @@
 @media (max-width: 64rem) {
   .card {
     grid-template-columns: 1fr;
-    row-gap: var(--space-lg);
+    row-gap: var(--space-md);
   }
 
   .card::before {
@@ -197,5 +197,48 @@
 
   .contactRow {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 64rem) {
+  .footer {
+    padding-top: clamp(5rem, 10vw, 8rem);
+  }
+
+  .plate {
+    top: 55%;
+    height: 57%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .footer {
+    padding-top: 4rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+
+  .card::before {
+    width: 95%;
+    top: -10px;
+  }
+
+  .card::after {
+    width: 90%;
+    top: -20px;
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 9vw, 2.5rem);
+  }
+}
+
+@media (min-width: 120rem) {
+  .frame {
+    max-inline-size: var(--content-max);
+    margin-inline: auto;
   }
 }

@@ -39,7 +39,7 @@ export default function HeroContent({ badgeText, title }: HeroContentProps) {
     const onScroll = () => {
       const el = logoWrapRef.current;
       if (!el) return;
-      el.style.opacity = String(Math.max(0, 1 - window.scrollY / 220));
+      el.style.opacity = String(Math.max(0, 1 - window.scrollY / (window.innerHeight * 0.3)));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

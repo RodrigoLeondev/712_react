@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
 import type { HeroVideoProps } from '@/domain/showcase/types';
 import YouTubeEmbed from '@/infrastructure/ui/video/YouTubeEmbed';
 import styles from './HeroVideo.module.css';
@@ -10,11 +11,11 @@ export default function HeroVideo({ videoUrl }: HeroVideoProps) {
   const trackRef = useRef<HTMLDivElement>(null);
 
   const [progress, setProgress] = useState(0);
-  const [reduced, setReduced] = useState(false);
+  const [reduced] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  );
 
   useEffect(() => {
-    setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-
     let frame = 0;
     const updateProgress = () => {
       const track = trackRef.current;
@@ -42,18 +43,13 @@ export default function HeroVideo({ videoUrl }: HeroVideoProps) {
   }, []);
 
   const p = reduced ? 1 : progress;
-  const translateY = (1 - p) * 320;
-  const rotateX = (1 - p) * 18;
-  const scaleValue = 0.92 + p * (1 - 0.92);
 
   return (
     <div ref={trackRef} className={styles.track}>
       <div className={styles.stage}>
         <div
           className={styles.wrapper}
-          style={{
-            transform: `translate(-50%, -50%) translateY(${translateY}px) rotateX(${rotateX}deg) scale(${scaleValue})`,
-          }}
+          style={{ '--p': p } as CSSProperties}
         >
           <YouTubeEmbed videoUrl={videoUrl} />
         </div>

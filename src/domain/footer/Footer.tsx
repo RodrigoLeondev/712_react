@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
 
           <div className={styles.aside}>
-            <nav className={styles.nav} aria-label="Enlaces del sitio">
+            <nav aria-label="Enlaces del sitio">
               <ul className={styles.navList}>
                 {footerLinks.map((link) => (
                   <li key={link.id}>

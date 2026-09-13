@@ -90,3 +90,10 @@
     display: none;
   }
 }
+
+@media (max-width: 48rem) {
+  .carousel {
+    --logo-h: 1.75rem;
+    --gap: var(--space-md);
+  }
+}

@@ -11,7 +11,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  block-size: calc(var(--card-w) * 1.25);
+  min-block-size: calc(var(--card-w) * 1.25);
   padding: 4.2cqw 8.3cqw;
   background: var(--color-white);
   border-radius: 18px;

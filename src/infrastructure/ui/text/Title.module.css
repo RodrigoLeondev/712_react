@@ -1,7 +1,7 @@
 .title {
-    font-size: clamp(3rem, 17.36vw, 250px);
+    font-size: var(--title-size);
     font-weight: 100;
-    color: #C4CCD5;
+    color: var(--color-title);
     text-align: center;
     line-height: 1;
 }

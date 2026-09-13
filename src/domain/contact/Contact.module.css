@@ -1,9 +1,9 @@
 .subtitle {
-  margin: 0;
+  margin: 0 0 var(--space-lg);
   font-family: var(--font-body);
   font-size: var(--text-3xl);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.25;
   text-transform: uppercase;
   text-align: center;
   color: var(--color-white);
@@ -13,12 +13,16 @@
   display: block;
 }
 
+.subtitle span + span {
+  margin-top: var(--space-xs);
+}
+
 .card {
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: 40% 1fr;
-  margin-top: -5.5rem;
+  margin-top: calc(var(--title-size) * var(--title-overlap) * -1);
   background: var(--color-white);
   border: 2px solid var(--color-dark);
   border-radius: 25px;
@@ -34,16 +38,20 @@
   position: absolute;
   left: 50%;
   bottom: 0;
+  z-index: 2;
   width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  translate: -50% 30%;
+  height: 140%;
+  object-fit: cover;
+  translate: -50% 26%;
 }
 
 @media (max-width: 64rem) {
+  .subtitle {
+    font-size: var(--text-2xl);
+  }
+
   .card {
     grid-template-columns: 1fr;
-    margin-top: -3rem;
   }
 
   .visual {
@@ -52,7 +60,26 @@
   }
 
   .flower {
+    top: 0;
+    bottom: auto;
     width: 70%;
-    translate: -50% 15%;
+    height: auto;
+    aspect-ratio: 1;
+    translate: -50% -10%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .subtitle {
+    font-size: var(--text-xl);
+  }
+
+  .visual {
+    min-block-size: 11rem;
+  }
+
+  .flower {
+    width: 62%;
+    translate: -50% -10%;
   }
 }

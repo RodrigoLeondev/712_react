@@ -1,5 +1,5 @@
 .acordionCard {
-  width: 85vw;
+  width: min(85vw, var(--content-max));
   align-self: center;
   overflow: hidden;
   color: var(--color-dark);
@@ -114,4 +114,10 @@
 
 .isOpen .acordionToggle {
   padding-block-end: 0.75rem;
+}
+
+@media (max-width: 30rem) {
+  .acordionToggle {
+    min-height: 3.5rem;
+  }
 }

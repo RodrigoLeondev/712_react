@@ -15,7 +15,7 @@
   font-size: clamp(0.75rem, 0.66rem + 0.4vw, 0.9375rem);
   background: transparent;
   transition: all 0.4s ease;
-  z-index: 1000;
+  z-index: var(--z-nav);
 }
 
 .nav.scrolled {
@@ -90,9 +90,48 @@
   flex-grow: 0;
 }
 
-@media (max-width: 48rem) {
+.burger {
+  display: none;
+  position: relative;
+  z-index: 2;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  inline-size: 1.5rem;
+  block-size: 2px;
+  margin: 0.3rem auto;
+  background: var(--color-white);
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.burger.isOpen span:nth-child(1) {
+  transform: translateY(0.5rem) rotate(45deg);
+}
+
+.burger.isOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.isOpen span:nth-child(3) {
+  transform: translateY(-0.5rem) rotate(-45deg);
+}
+
+.menuContact {
+  display: none;
+}
+
+@media (max-width: 64rem) {
   .nav {
-    row-gap: 0.5rem;
+    justify-content: space-between;
   }
 
   .logo,
@@ -100,14 +139,64 @@
     flex: 0 0 auto;
   }
 
+  .logo {
+    position: relative;
+    z-index: 2;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .contactButton {
+    display: none;
+  }
+
   .menu {
-    order: 3;
-    inline-size: 100%;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: var(--space-lg);
+    padding-block: calc(var(--nav-h) + var(--space-lg)) var(--space-lg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--color-primary);
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 -100%;
+    transition:
+      translate var(--transition-slow),
+      opacity var(--transition-base),
+      visibility var(--transition-base);
+  }
+
+  .menu.isOpen {
+    opacity: 1;
+    visibility: visible;
+    translate: 0 0;
   }
 
   .menuList {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: var(--text-2xl);
+  }
+
+  .menuContact {
+    display: block;
+  }
+
+  .menuContact a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6em 1.6em;
+    background: var(--color-red-orange);
+    border-radius: 10px;
+    font-size: var(--text-lg);
+    color: var(--color-white);
   }
 }
