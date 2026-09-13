@@ -1,0 +1,112 @@
+.deck {
+  --deck-h: clamp(22rem, 90vw, 440px);
+
+  position: relative;
+  isolation: isolate;
+  min-block-size: var(--deck-h);
+  cursor: pointer;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  padding-bottom: calc(var(--space-md) * 2.5);
+  pointer-events: none;
+  background: var(--color-white);
+  border: var(--border-card) solid var(--color-dark);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  translate: calc(var(--depth) * 22px) calc(var(--depth) * 16px);
+  rotate: calc(var(--depth) * 3deg);
+  scale: calc(1 - var(--depth) * 0.06);
+  z-index: calc(10 - var(--depth));
+  transition: translate var(--transition-slow), rotate var(--transition-slow),
+    scale var(--transition-slow);
+}
+
+.sparkle {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-md);
+  font-size: clamp(1.5rem, 2.8vw, 40px);
+  line-height: 1;
+  color: var(--color-white);
+  text-shadow: 2px 2px 0 var(--color-dark), -1px -1px 0 var(--color-dark),
+    1px -1px 0 var(--color-dark), -1px 1px 0 var(--color-dark);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+}
+
+.text {
+  margin: 0;
+  max-width: 46ch;
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  line-height: 1.6;
+  color: var(--color-dark);
+}
+
+.dots {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 11;
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.dot {
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--color-dark);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 3px;
+}
+
+.isActive {
+  background-color: var(--color-dark);
+}
+
+@media (min-width: 48rem) {
+  .deck {
+    --deck-h: clamp(22rem, 90vw, 440px);
+  }
+
+  .card {
+    padding: var(--space-lg);
+    padding-bottom: calc(var(--space-lg) * 2);
+  }
+
+  .dots {
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}

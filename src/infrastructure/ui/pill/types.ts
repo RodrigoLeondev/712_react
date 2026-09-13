@@ -11,6 +11,7 @@ export interface PillItem {
   tone?: PillTone;
   tilt?: number;
   size?: 'sm' | 'md' | 'lg';
+  wrap?: boolean;
 }
 
 export type TagPillProps = PillItem;

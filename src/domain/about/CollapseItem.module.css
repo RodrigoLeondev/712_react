@@ -1,4 +1,6 @@
 .item {
+  --type: 8.5cqw;
+
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
@@ -19,9 +21,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-sm);
+  gap: 2.6cqw;
   inline-size: 100%;
-  padding-block: var(--space-sm);
+  min-inline-size: 0;
+  padding-block: 2.6cqw;
   font: inherit;
   text-align: start;
   background: none;
@@ -35,16 +38,18 @@
 }
 
 .title {
+  min-inline-size: 0;
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--type);
   font-weight: 400;
   line-height: 1.1;
   text-transform: uppercase;
+  overflow-wrap: break-word;
   color: var(--color-dark);
 }
 
 .featured {
-  font-size: clamp(2.1rem, 3.4vw, 3.6rem);
+  font-size: calc(var(--type) * 1.25);
   color: var(--color-purple);
 }
 
@@ -70,8 +75,8 @@
 }
 
 .chevron svg {
-  inline-size: 1.25rem;
-  block-size: 1.25rem;
+  inline-size: 3.5cqw;
+  block-size: 3.5cqw;
 }
 
 .isOpen .chevron {
@@ -94,10 +99,10 @@
 
 .text {
   margin: 0;
-  padding-bottom: var(--space-sm);
+  padding-bottom: 2.8cqw;
   max-width: 46ch;
   font-family: var(--font-body);
-  font-size: var(--text-xl);
+  font-size: clamp(0.75rem, calc(var(--type) * 0.38), 1.5rem);
   line-height: 1.6;
   color: var(--color-dark);
 }

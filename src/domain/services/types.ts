@@ -5,3 +5,17 @@ export interface Service {
   content: string;
   pills: PillItem[];
 }
+
+export interface DeckCardData {
+  id: string;
+  title: string;
+  text: string;
+}
+
+export interface DeckCardProps extends DeckCardData {
+  depth: number;
+}
+
+export interface CardDeckProps {
+  items: readonly DeckCardData[];
+}

@@ -1,11 +1,3 @@
-/**
- * Paleta del sitio en JS.
- *
- * Para estilar componentes usa las variables CSS de
- * `infrastructure/styles/globals.css` (--color-*). Este módulo existe para
- * los casos en que el color debe llegar a JavaScript: shaders WebGL,
- * canvas, o props de color de un componente.
- */
 export const COLORS = {
   primary: '#1A1A2E',
   secondary: '#16213E',
@@ -19,4 +11,5 @@ export const COLORS = {
   purple: '#5614e8',
   rose: '#f55cf5',
   grey: '#C6C6C8',
+  blue: '#6F9FFF',
 } as const;

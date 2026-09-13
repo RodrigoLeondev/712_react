@@ -1,8 +1,8 @@
 .track {
   position: relative;
   width: 100%;
-  min-height: 200vh;
-  margin-top: -45vh;
+  min-height: 125vh;
+  margin-top: -18vh;
 }
 
 .stage {
@@ -17,7 +17,27 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(80vw, 160dvh);
+  --video-w: min(94vw, 160dvh);
+  --travel: min(calc(var(--video-w) * 9 / 32), 20rem);
+
+  width: var(--video-w);
+  transform:
+    translate(-50%, -50%)
+    translateY(calc((1 - var(--p, 0)) * var(--travel)))
+    rotateX(calc((1 - var(--p, 0)) * 18deg))
+    scale(calc(0.92 + var(--p, 0) * 0.08));
   will-change: transform;
 }
 
+@media (min-width: 48rem) {
+  .track {
+    margin-top: -30vh;
+  }
+}
+
+@media (min-width: 64rem) {
+  .track {
+    min-height: 150vh;
+    margin-top: -45vh;
+  }
+}

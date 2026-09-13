@@ -6,6 +6,7 @@ import StackedCard from '@/domain/about/StackedCard';
 import CollapseStack from '@/domain/about/CollapseStack';
 import TagPill from '@/infrastructure/ui/pill/TagPill';
 import YouTubeEmbed from '@/infrastructure/ui/video/YouTubeEmbed';
+import Brands from '@/domain/about/Brands';
 
 const PORTAFOLIO_VIDEO_URL = 'https://youtu.be/YplOIN2JRBw';
 
@@ -46,6 +47,8 @@ export default function About() {
           <YouTubeEmbed videoUrl={PORTAFOLIO_VIDEO_URL} title="Portafolio 712" />
         </div>
       </div>
+
+      <Brands />
     </>
   );
 }
