@@ -4,7 +4,6 @@ import styles from './StackedCard.module.css';
 export default function StackedCard(){
   return (
     <div className={styles.container}>
-      {/* El grupo de tarjetas apiladas */}
       <div className={styles.stack}>
         <h2 className={styles.title}>
           <span className={styles.firstWord}>
@@ -22,7 +21,6 @@ export default function StackedCard(){
           <p>Entendemos tu contexto y tomamos decisiones creativas alineadas a tus objetivos.</p>
         </div>
 
-        {/* Decoración de estrella en la esquina */}
         <div className={styles.sparkle}>✦</div>
       </div>
     </div>

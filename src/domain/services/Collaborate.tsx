@@ -8,7 +8,7 @@ export default function Collaborate() {
     <>
       <header className={styles.header}>
         <div className={styles.pill}>
-          <TagPill label="Maneras de colaborar" tone="green" tilt={-4} />
+          <TagPill label="Maneras de colaborar" tone="green" tilt={-5} />
         </div>
 
         <h2 className={styles.title}>

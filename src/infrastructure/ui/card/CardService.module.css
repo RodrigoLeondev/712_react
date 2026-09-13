@@ -1,5 +1,6 @@
 .acordionCard {
-  width: 98vw;
+  width: 85vw;
+  align-self: center;
   overflow: hidden;
   color: var(--color-dark);
   background-color: var(--color-white);

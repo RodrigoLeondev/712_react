@@ -9,7 +9,7 @@ export default function Brands() {
       <h2 className={styles.title}>
         <span className={styles.firstWord}>
           <span className={styles.cornerPill}>
-            <TagPill label="Algunas ✦" tone="purple" tilt={-20} />
+            <TagPill label="Algunas ✦" tone="purple" tilt={-15} />
           </span>
           Marcas
         </span>{' '}
