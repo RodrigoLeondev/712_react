@@ -7,59 +7,108 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1.4vw, 2rem);
+  padding: 1rem clamp(1rem, 2.2vw, 2rem);
   font-family: var(--font-body);
-  font-size: var(--text-xl);
+  font-size: clamp(0.75rem, 0.66rem + 0.4vw, 0.9375rem);
   background: transparent;
   transition: all 0.4s ease;
-  z-index: 1000;
+  z-index: var(--z-nav);
 }
 
 .nav.scrolled {
   background: var(--color-primary);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem clamp(1rem, 2.2vw, 2rem);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .logo {
-  flex: 1 0 auto;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  min-inline-size: 0;
   display: flex;
   justify-content: flex-start;
   transition: flex-grow var(--nav-collapse);
   color: white;
 }
 
+.logo img {
+  inline-size: clamp(5.25rem, 8.3vw, 7.5rem);
+  block-size: auto;
+}
+
 .menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
   display: flex;
-  gap: 2rem;
-  transition: all 0.4s ease;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding-block: calc(var(--nav-h) + var(--space-lg)) var(--space-lg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-primary);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -100%;
+  transition:
+    translate var(--transition-slow),
+    opacity var(--transition-base),
+    visibility var(--transition-base);
+}
+
+.menu.isOpen {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
 }
 
 .menuList {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--text-2xl);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .contactButton {
-  flex: 1 0 auto;
-  display: flex;
+  flex: 0 0 auto;
+  min-inline-size: 0;
+  display: none;
   justify-content: flex-end;
   transition: flex-grow var(--nav-collapse);
 }
 
-.contactButton button {
+.contactButton a {
+  display: inline-flex;
+  align-items: center;
   color: var(--color-white);
   background: var(--color-red-orange);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 0.5em 1.25em;
   cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.contactButton a:hover {
+  opacity: 0.85;
+}
+
+.menuList a {
+  transition: opacity var(--transition-base);
+}
+
+.menuList a:hover {
+  opacity: 0.7;
 }
 
 .nav.scrolled .logo,
@@ -67,13 +116,92 @@
   flex-grow: 0;
 }
 
-@media (max-width: 64rem) {
+.burger {
+  display: block;
+  position: relative;
+  z-index: 2;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  inline-size: 1.5rem;
+  block-size: 2px;
+  margin: 0.3rem auto;
+  background: var(--color-white);
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.burger.isOpen span:nth-child(1) {
+  transform: translateY(0.5rem) rotate(45deg);
+}
+
+.burger.isOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.isOpen span:nth-child(3) {
+  transform: translateY(-0.5rem) rotate(-45deg);
+}
+
+.menuContact {
+  display: block;
+}
+
+.menuContact a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6em 1.6em;
+  background: var(--color-red-orange);
+  border-radius: var(--radius-md);
+  font-size: var(--text-lg);
+  color: var(--color-white);
+}
+
+@media (min-width: 64rem) {
   .nav {
-    gap: 1rem;
-    padding-inline: 1rem;
+    justify-content: center;
+  }
+
+  .logo,
+  .contactButton {
+    flex: 1 1 auto;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .contactButton {
+    display: flex;
+  }
+
+  .menu {
+    position: static;
+    flex-direction: row;
+    gap: clamp(0.75rem, 1.4vw, 2rem);
+    padding-block: 0;
+    overflow: visible;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    translate: 0 0;
   }
 
   .menuList {
-    gap: 1.25rem;
+    flex-direction: row;
+    gap: clamp(0.75rem, 1.4vw, 2rem);
+    font-size: inherit;
+  }
+
+  .menuContact {
+    display: none;
   }
 }

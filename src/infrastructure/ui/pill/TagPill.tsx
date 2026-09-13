@@ -7,10 +7,11 @@ export default function TagPill({
   tone = 'white',
   tilt,
   size = 'md',
+  wrap = false,
 }: TagPillProps) {
   return (
     <span
-      className={[styles.pill, styles[tone], styles[size]]
+      className={[styles.pill, styles[tone], styles[size], wrap && styles.wrap]
         .filter(Boolean)
         .join(' ')}
       style={
