@@ -12,7 +12,7 @@ export default function StackedCard(){
             </span>
             DESDE
           </span>{' '}
-          LA IDEA 
+          LA IDEA
         </h2>
         <span/>
         <h2 className={styles.title2}>HASTA LA ENTREGA</h2>

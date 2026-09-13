@@ -53,7 +53,7 @@
   color: var(--color-white);
   background: var(--color-dark);
   border: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
   cursor: pointer;
   transition: transform var(--transition-base), background var(--transition-base);
 }

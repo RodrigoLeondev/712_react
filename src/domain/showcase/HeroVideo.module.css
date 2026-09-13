@@ -1,8 +1,8 @@
 .track {
   position: relative;
   width: 100%;
-  min-height: 150vh;
-  margin-top: -45vh;
+  min-height: 125vh;
+  margin-top: -18vh;
 }
 
 .stage {
@@ -29,15 +29,15 @@
   will-change: transform;
 }
 
-
-@media (max-width: 64rem) {
+@media (min-width: 48rem) {
   .track {
     margin-top: -30vh;
   }
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 64rem) {
   .track {
-    margin-top: -18vh;
+    min-height: 150vh;
+    margin-top: -45vh;
   }
 }

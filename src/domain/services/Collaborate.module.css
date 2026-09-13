@@ -44,7 +44,7 @@
   align-self: center;
   margin: 0;
   font-family: var(--font-body);
-  font-size: 2.06cqw;
+  font-size: 2.9cqw;
   line-height: 1.15;
   color: var(--color-white);
 }
@@ -58,7 +58,7 @@
 
 .showcase {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   gap: var(--space-lg);
 }
@@ -68,14 +68,14 @@
   height: auto;
 }
 
-@media (max-width: 64rem) {
-  .showcase {
-    grid-template-columns: 1fr;
+@media (min-width: 48rem) {
+  .lead {
+    font-size: 2.06cqw;
   }
 }
 
-@media (max-width: 48rem) {
-  .lead {
-    font-size: 2.9cqw;
+@media (min-width: 64rem) {
+  .showcase {
+    grid-template-columns: 1fr 1fr;
   }
 }

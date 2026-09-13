@@ -1,7 +1,6 @@
-
 .stage {
   --leading: 1;
-  --layer-h: min(910px, 63.2vw);
+  --layer-h: min(910px, 78vw);
   --layer-top: max(-40px, -2.8vw);
   --ink-ratio: 0.8100;
   --shift-max: min(70px, 4.9vw);
@@ -52,21 +51,28 @@
 }
 
 .cards {
-  width: 70vw;
-  padding: 0;
+  width: 92vw;
+  padding-inline: var(--space-xs);
   margin-inline: auto;
 }
 
 .portafolio {
   --card-h: 720px;
 
-  margin: 0 auto 80px auto;
-  width: 100%;
-  min-height: calc(var(--card-h) + var(--space-xl) * 2);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
+  gap: clamp(4rem, 14vw, 8rem);
+  width: 100%;
+  min-height: 0;
+  margin: 0 auto clamp(4rem, 10vw, 80px) auto;
   padding-top: 0;
+  padding-inline: var(--section-padding-x);
+}
+
+.cards + .portafolio {
+  margin-top: clamp(3rem, 10vw, 6rem);
 }
 
 .cardCollapsed {
@@ -92,33 +98,33 @@
   justify-content: flex-start;
 }
 
-@media (max-width: 64rem) {
+@media (min-width: 30rem) {
+  .stage {
+    --layer-h: min(910px, 63.2vw);
+  }
+
   .cards {
     width: 86vw;
-  }
-
-  .portafolio {
-    flex-direction: column;
-    align-items: stretch;
-    gap: clamp(4rem, 14vw, 8rem);
-    min-height: 0;
-    margin-bottom: clamp(4rem, 10vw, 80px);
-    padding-inline: var(--section-padding-x);
-  }
-
-  .cards + .portafolio {
-    margin-top: clamp(3rem, 10vw, 6rem);
+    padding-inline: 0;
   }
 }
 
-@media (max-width: 30rem) {
+@media (min-width: 64rem) {
   .cards {
-    width: 92vw;
-    padding-inline: var(--space-xs);
+    width: 70vw;
   }
 
-  .stage {
-    --layer-h: min(910px, 78vw);
+  .portafolio {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    min-height: calc(var(--card-h) + var(--space-xl) * 2);
+    margin-bottom: 80px;
+    padding-inline: 0;
+  }
+
+  .cards + .portafolio {
+    margin-top: 0;
   }
 }
 

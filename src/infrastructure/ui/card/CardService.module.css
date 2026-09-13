@@ -5,7 +5,7 @@
   color: var(--color-dark);
   background-color: var(--color-white);
   border: 1px solid color-mix(in srgb, var(--color-light) 15%, transparent);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   transition:
     color var(--transition-base),
     background-color var(--transition-base),
@@ -38,7 +38,7 @@
   border: 0;
   cursor: pointer;
   font-weight: 400;
-  min-height: clamp(4.5rem, 8.3vw, 120px);
+  min-height: 3.5rem;
   transition: min-height var(--transition-base)
 }
 
@@ -116,8 +116,8 @@
   padding-block-end: 0.75rem;
 }
 
-@media (max-width: 30rem) {
+@media (min-width: 30rem) {
   .acordionToggle {
-    min-height: 3.5rem;
+    min-height: clamp(4.5rem, 8.3vw, 120px);
   }
 }

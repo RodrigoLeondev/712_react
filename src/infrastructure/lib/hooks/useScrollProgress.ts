@@ -3,12 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
-/**
- * Progreso 0 → 1 del elemento cruzando el viewport: 0 cuando su borde
- * superior entra por abajo, 1 cuando su borde inferior sale por arriba.
- *
- * Con prefers-reduced-motion devuelve 0.5 fijo, la posición de reposo.
- */
 export function useScrollProgress<T extends HTMLElement = HTMLDivElement>() {
   const ref = useRef<T>(null);
   const [progress, setProgress] = useState(0.5);

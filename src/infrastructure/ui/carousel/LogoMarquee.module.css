@@ -1,6 +1,6 @@
 .carousel {
-  --gap: var(--space-lg);
-  --logo-h: 2.25rem;
+  --gap: var(--space-md);
+  --logo-h: 1.75rem;
 
   width: 100%;
   overflow: hidden;
@@ -91,9 +91,9 @@
   }
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 48rem) {
   .carousel {
-    --logo-h: 1.75rem;
-    --gap: var(--space-md);
+    --logo-h: 2.25rem;
+    --gap: var(--space-lg);
   }
 }

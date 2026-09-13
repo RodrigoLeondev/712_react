@@ -1,6 +1,7 @@
 .container {
-  --card-w: min(40vw, 576px);
+  --card-w: min(78vw, 576px);
 
+  margin-inline: auto;
   position: relative;
   isolation: isolate;
   container-type: inline-size;
@@ -14,7 +15,7 @@
   min-block-size: calc(var(--card-w) * 1.25);
   padding: 4.2cqw 8.3cqw;
   background: var(--color-white);
-  border-radius: 18px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 18px 40px rgb(0 0 0 / 0.35);
 }
 
@@ -23,30 +24,40 @@
   content: '';
   position: absolute;
   background: var(--color-white);
-  border-radius: 18px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 14px 30px rgb(0 0 0 / 0.28);
 }
 
 .card::before {
   width: 96%;
   height: 96%;
-  right: -4.2cqw;
-  bottom: -3.1cqw;
+  right: -5.2cqw;
+  bottom: -3.9cqw;
   z-index: -1;
 }
 
 .card::after {
   width: 92%;
   height: 92%;
-  right: -8cqw;
-  bottom: -5.9cqw;
+  right: -10cqw;
+  bottom: -7.4cqw;
   z-index: -2;
 }
 
-@media (max-width: 64rem) {
+@media (min-width: 64rem) {
   .container {
-    --card-w: min(92vw, 576px);
+    --card-w: min(40vw, 576px);
 
-    margin-inline: auto;
+    margin-inline: 0;
+  }
+
+  .card::before {
+    right: -4.2cqw;
+    bottom: -3.1cqw;
+  }
+
+  .card::after {
+    right: -8cqw;
+    bottom: -5.9cqw;
   }
 }

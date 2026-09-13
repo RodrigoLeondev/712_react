@@ -17,9 +17,9 @@
     padding: 2cqw;
     box-sizing: border-box;
     background: var(--color-white);
-    border: 2px solid var(--color-dark);
+    border: var(--border-card) solid var(--color-dark);
     border-radius: 2.5cqw;
-    box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+    box-shadow: var(--shadow-card);
     overflow: visible;
 }
 
@@ -30,7 +30,7 @@
     left: 50%;
     height: 100%;
     background: var(--color-white);
-    border: 2px solid var(--color-dark);
+    border: var(--border-card) solid var(--color-dark);
     border-radius: 2.5cqw;
     translate: -50% 0;
 }
@@ -107,14 +107,13 @@
     text-align: center;
 }
 
-/* Decoración de la esquina */
 .sparkle {
     position: absolute;
     top: 2cqw;
     right: 3cqw;
     font-size: clamp(1rem, 3.97cqw, 2.5rem);
-    color: #ffffff;
-    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    color: var(--color-white);
+    text-shadow: 2px 2px 0 var(--color-dark), -1px -1px 0 var(--color-dark), 1px -1px 0 var(--color-dark), -1px 1px 0 var(--color-dark);
     z-index: 3;
 }
 .cornerPill > span {

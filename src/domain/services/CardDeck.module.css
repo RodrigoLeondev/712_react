@@ -1,5 +1,5 @@
 .deck {
-  --deck-h: clamp(24rem, 33.3vw, 480px);
+  --deck-h: clamp(22rem, 90vw, 440px);
 
   position: relative;
   isolation: isolate;
@@ -14,13 +14,13 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--space-sm);
-  padding: var(--space-lg);
-  padding-bottom: calc(var(--space-lg) * 2);
+  padding: var(--space-md);
+  padding-bottom: calc(var(--space-md) * 2.5);
   pointer-events: none;
   background: var(--color-white);
-  border: 2px solid var(--color-dark);
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+  border: var(--border-card) solid var(--color-dark);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
   translate: calc(var(--depth) * 22px) calc(var(--depth) * 16px);
   rotate: calc(var(--depth) * 3deg);
   scale: calc(1 - var(--depth) * 0.06);
@@ -62,8 +62,8 @@
 
 .dots {
   position: absolute;
-  right: var(--space-lg);
-  bottom: var(--space-lg);
+  right: var(--space-md);
+  bottom: var(--space-md);
   z-index: 11;
   display: flex;
   gap: var(--space-xs);
@@ -89,19 +89,19 @@
   background-color: var(--color-dark);
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 48rem) {
   .deck {
     --deck-h: clamp(22rem, 90vw, 440px);
   }
 
   .card {
-    padding: var(--space-md);
-    padding-bottom: calc(var(--space-md) * 2.5);
+    padding: var(--space-lg);
+    padding-bottom: calc(var(--space-lg) * 2);
   }
 
   .dots {
-    right: var(--space-md);
-    bottom: var(--space-md);
+    right: var(--space-lg);
+    bottom: var(--space-lg);
   }
 }
 

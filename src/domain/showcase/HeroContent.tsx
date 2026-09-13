@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import type { HeroContentProps, HighlightKey } from '@/domain/showcase/types';
 import styles from './HeroContent.module.css';
 
-const STEP = 0.12; 
-const LOGO_TIME = 0.8; 
+const STEP = 0.12;
+const LOGO_TIME = 0.8;
 
 const WORD_HIGHLIGHTS: Record<string, HighlightKey> = {
   creatividad: 'green',

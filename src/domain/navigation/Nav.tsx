@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { useScroll } from '@/infrastructure/lib/hooks/useScroll';
 import { useBodyScrollLock } from '@/infrastructure/lib/hooks/useBodyScrollLock';
 import styles from './Nav.module.css';
+import type { NavLink } from './types';
 
-const LINKS = [
+const LINKS: readonly NavLink[] = [
   { href: '#hero', label: 'Inicio' },
   { href: '#services', label: 'Servicios' },
   { href: '#about', label: 'Sobre nosotros' },
@@ -31,7 +32,7 @@ export default function Nav() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.logo}>
         <a href="#hero" onClick={close}>
-          <img src="/Logo.svg" alt="Logo" />
+          <img src="/Logo.svg" alt="Logo" width="120" height="26" />
         </a>
       </div>
 

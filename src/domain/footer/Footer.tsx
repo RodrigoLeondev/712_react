@@ -18,7 +18,12 @@ export default function Footer() {
 
         <div className={styles.card}>
           <div className={styles.brand}>
-            <img className={styles.logo} src="/Logo.svg" alt="712 Studio" />
+            <img
+              className={styles.logo}
+              src="/Logo.svg"
+              alt="712 Studio"
+              loading="lazy"
+            />
 
             <h2 className={styles.title}>
               Get, quality business

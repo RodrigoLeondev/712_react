@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md);
 }
 
 .title {
@@ -17,7 +17,7 @@
 
 .fields {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: var(--space-lg);
   row-gap: var(--space-sm);
 }
@@ -30,7 +30,7 @@
 }
 
 .half {
-  grid-column: span 1;
+  grid-column: 1 / -1;
 }
 
 .label {
@@ -89,16 +89,16 @@
   outline-offset: 3px;
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 48rem) {
   .form {
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
   }
 
   .fields {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .half {
-    grid-column: 1 / -1;
+    grid-column: span 1;
   }
 }

@@ -6,9 +6,6 @@
     line-height: 1;
 }
 
-/* Ambas partes en bloque: el salto de línea es fijo y no depende de
-   dónde decida romper el navegador. De eso depende que el cuadro de
-   About caiga exactamente sobre la segunda línea. */
 .line,
 .highlight {
     display: block;

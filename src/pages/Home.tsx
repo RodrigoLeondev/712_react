@@ -11,10 +11,6 @@ import { HERO } from '@/infrastructure/lib/constants/hero';
 import styles from './Home.module.css';
 import Title from '@/infrastructure/ui/text/Title';
 
-/**
- * La página orquesta: compone el layout de infraestructura con las
- * secciones de domain/ y les inyecta los datos.
- */
 export default function Home() {
   return (
     <BaseLayout header={<Nav />} footer={<Footer />}>
@@ -27,7 +23,7 @@ export default function Home() {
       <section id="services" className={styles.services}>
         <Title title="Servicios" />
         <div className={styles.servicesInner}>
-         <Services /> 
+         <Services />
         </div>
       </section>
       <section id="about" className={styles.about}>

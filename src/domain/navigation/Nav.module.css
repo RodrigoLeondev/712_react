@@ -7,7 +7,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: clamp(0.75rem, 1.4vw, 2rem);
   padding: 1rem clamp(1rem, 2.2vw, 2rem);
@@ -25,7 +25,9 @@
 }
 
 .logo {
-  flex: 1 1 auto;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
   min-inline-size: 0;
   display: flex;
   justify-content: flex-start;
@@ -39,24 +41,48 @@
 }
 
 .menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
   display: flex;
-  gap: clamp(0.75rem, 1.4vw, 2rem);
-  transition: all 0.4s ease;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding-block: calc(var(--nav-h) + var(--space-lg)) var(--space-lg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-primary);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -100%;
+  transition:
+    translate var(--transition-slow),
+    opacity var(--transition-base),
+    visibility var(--transition-base);
+}
+
+.menu.isOpen {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
 }
 
 .menuList {
   display: flex;
-  flex-direction: row;
-  gap: clamp(0.75rem, 1.4vw, 2rem);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--text-2xl);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .contactButton {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-inline-size: 0;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   transition: flex-grow var(--nav-collapse);
 }
@@ -67,7 +93,7 @@
   color: var(--color-white);
   background: var(--color-red-orange);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 0.5em 1.25em;
   cursor: pointer;
   transition: opacity var(--transition-base);
@@ -91,7 +117,7 @@
 }
 
 .burger {
-  display: none;
+  display: block;
   position: relative;
   z-index: 2;
   inline-size: 2.5rem;
@@ -126,77 +152,56 @@
 }
 
 .menuContact {
-  display: none;
+  display: block;
 }
 
-@media (max-width: 64rem) {
+.menuContact a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6em 1.6em;
+  background: var(--color-red-orange);
+  border-radius: var(--radius-md);
+  font-size: var(--text-lg);
+  color: var(--color-white);
+}
+
+@media (min-width: 64rem) {
   .nav {
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .logo,
   .contactButton {
-    flex: 0 0 auto;
-  }
-
-  .logo {
-    position: relative;
-    z-index: 2;
+    flex: 1 1 auto;
   }
 
   .burger {
-    display: block;
-  }
-
-  .contactButton {
     display: none;
   }
 
-  .menu {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-lg);
-    padding-block: calc(var(--nav-h) + var(--space-lg)) var(--space-lg);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    background: var(--color-primary);
-    opacity: 0;
-    visibility: hidden;
-    translate: 0 -100%;
-    transition:
-      translate var(--transition-slow),
-      opacity var(--transition-base),
-      visibility var(--transition-base);
+  .contactButton {
+    display: flex;
   }
 
-  .menu.isOpen {
+  .menu {
+    position: static;
+    flex-direction: row;
+    gap: clamp(0.75rem, 1.4vw, 2rem);
+    padding-block: 0;
+    overflow: visible;
+    background: none;
     opacity: 1;
     visibility: visible;
     translate: 0 0;
   }
 
   .menuList {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    font-size: var(--text-2xl);
+    flex-direction: row;
+    gap: clamp(0.75rem, 1.4vw, 2rem);
+    font-size: inherit;
   }
 
   .menuContact {
-    display: block;
-  }
-
-  .menuContact a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.6em 1.6em;
-    background: var(--color-red-orange);
-    border-radius: 10px;
-    font-size: var(--text-lg);
-    color: var(--color-white);
+    display: none;
   }
 }
