@@ -105,6 +105,40 @@ Varias secciones usan **container queries** (`cqw`) en vez de media queries: `Co
 
 ---
 
+## Despliegue
+
+Pensado para Vercel o Netlify. Las cabeceras de seguridad están en **`vercel.json`** y, duplicadas para Netlify, en **`public/_headers`** — usar la que corresponda al host.
+
+### Variables de entorno
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Para qué |
+|---|---|
+| `VITE_WEB3FORMS_KEY` | Clave de [Web3Forms](https://web3forms.com) que reciben los formularios de contacto y newsletter |
+
+La clave es **pública por diseño** (viaja en el bundle, como toda variable `VITE_`). No es un secreto: la protección contra abuso es el campo honeypot más el límite de envíos del propio servicio. Sin la clave, los formularios muestran estado de error.
+
+### Antes de publicar
+
+- [ ] Reemplazar `https://712studio.com` por el dominio real en `index.html` (canonical, OG, JSON-LD) y en `public/sitemap.xml` y `public/robots.txt`
+- [ ] Subir `public/og-image.jpg` de 1200×630 — sin él, los enlaces compartidos no muestran imagen
+- [ ] Añadir `public/apple-touch-icon.png` de 180×180 y su `<link>` en `index.html`
+- [ ] Completar `sameAs` en el JSON-LD con los perfiles reales de redes
+- [ ] Actualizar `socialLinks` en `src/domain/footer/footerData.ts`, que hoy apunta a las portadas de X, Facebook y LinkedIn
+
+### Control de tráfico
+
+Vercel y Netlify **no ofrecen WAF ni rate limiting en sus planes gratuitos**, y un sitio estático no puede limitarse a sí mismo. Para tenerlo sin costo, poner Cloudflare como DNS por delante del hosting: su plan gratuito incluye WAF, reglas de rate limiting, Bot Fight Mode y analítica. No requiere migrar el hosting, solo cambiar los nameservers.
+
+### Sobre ofuscar el código
+
+No se hace, y es deliberado. Todo lo que corre en el navegador se descarga y se ejecuta ahí: no existe forma de cifrarlo. Vite ya minifica el bundle y no emite sourcemaps en producción. Ofuscar encima infla el peso, degrada el rendimiento, vuelve imposible depurar producción y sigue siendo reversible: es fricción, no seguridad.
+
+---
+
 ## Reglas duras
 
 Antes de dar por terminado un cambio, verificar que se cumple:

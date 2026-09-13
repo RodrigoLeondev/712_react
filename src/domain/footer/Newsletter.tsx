@@ -1,16 +1,24 @@
-import type { FormEvent } from 'react';
+import { HONEYPOT_FIELD } from '@/infrastructure/lib/constants/forms';
+import { useFormSubmit } from '@/infrastructure/lib/hooks/useFormSubmit';
 import styles from './Newsletter.module.css';
 
 export default function Newsletter() {
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
+  const { status, onSubmit } = useFormSubmit();
 
   return (
     <form className={styles.newsletter} onSubmit={onSubmit}>
       <label className={styles.label} htmlFor="newsletter-email">
         Join our newsletter
       </label>
+
+      <input
+        type="checkbox"
+        name={HONEYPOT_FIELD}
+        className={styles.honeypot}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
 
       <div className={styles.control}>
         <input
@@ -20,10 +28,16 @@ export default function Newsletter() {
           type="email"
           placeholder="tucorreo@empresa.com"
           autoComplete="email"
+          maxLength={120}
           required
         />
 
-        <button type="submit" className={styles.submit} aria-label="Suscribirme">
+        <button
+          type="submit"
+          className={styles.submit}
+          aria-label="Suscribirme"
+          disabled={status === 'sending'}
+        >
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
             <path
               d="M5 12h13m-5.5-6.5L19 12l-6.5 6.5"
@@ -36,6 +50,11 @@ export default function Newsletter() {
           </svg>
         </button>
       </div>
+
+      <p className={styles.status} role="status" aria-live="polite">
+        {status === 'success' && '¡Listo! Estás suscrito.'}
+        {status === 'error' && 'No pudimos suscribirte. Intenta de nuevo.'}
+      </p>
     </form>
   );
 }
