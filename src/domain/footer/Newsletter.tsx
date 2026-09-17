@@ -4,7 +4,7 @@ import { useFormSubmit } from '@/infrastructure/lib/hooks/useFormSubmit';
 import styles from './Newsletter.module.css';
 
 export default function Newsletter() {
-  const { status, onSubmit } = useFormSubmit();
+  const { status, message, onSubmit } = useFormSubmit();
 
   return (
     <form className={styles.newsletter} onSubmit={onSubmit}>
@@ -59,7 +59,8 @@ export default function Newsletter() {
 
       <p className={styles.status} role="status" aria-live="polite">
         {status === 'success' && '¡Listo! Estás suscrito.'}
-        {status === 'error' && 'No pudimos suscribirte. Intenta de nuevo.'}
+        {status === 'captcha' && 'Confirma que no eres un robot para suscribirte.'}
+        {status === 'error' && message}
       </p>
     </form>
   );

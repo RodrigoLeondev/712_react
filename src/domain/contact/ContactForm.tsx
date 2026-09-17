@@ -5,7 +5,7 @@ import { useFormSubmit } from '@/infrastructure/lib/hooks/useFormSubmit';
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
-  const { status, onSubmit } = useFormSubmit();
+  const { status, message, onSubmit } = useFormSubmit();
 
   return (
     <form className={styles.form} onSubmit={onSubmit} noValidate={false}>
@@ -65,7 +65,8 @@ export default function ContactForm() {
 
       <p className={styles.status} role="status" aria-live="polite">
         {status === 'success' && '¡Gracias! Te respondemos pronto.'}
-        {status === 'error' && 'No pudimos enviar el mensaje. Intenta de nuevo.'}
+        {status === 'captcha' && 'Confirma que no eres un robot para enviar.'}
+        {status === 'error' && message}
       </p>
     </form>
   );

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import {
+  HCAPTCHA_FIELD,
   HONEYPOT_FIELD,
   WEB3FORMS_ACCESS_KEY,
   WEB3FORMS_ENDPOINT,
@@ -9,6 +10,13 @@ import type { FormStatus, UseFormSubmitResult } from '@/infrastructure/lib/hooks
 
 export function useFormSubmit(): UseFormSubmitResult {
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [message, setMessage] = useState('');
+
+  const fail = (text: string) => {
+    setStatus('error');
+    setMessage(text);
+    window.hcaptcha?.reset();
+  };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,30 +27,40 @@ export function useFormSubmit(): UseFormSubmitResult {
 
     if (data.get(HONEYPOT_FIELD)) {
       setStatus('success');
+      setMessage('');
       form.reset();
       return;
     }
 
     if (!WEB3FORMS_ACCESS_KEY) {
-      setStatus('error');
+      fail('Falta configurar la clave de acceso.');
+      return;
+    }
+
+    if (!data.get(HCAPTCHA_FIELD)) {
+      setStatus('captcha');
+      setMessage('');
       return;
     }
 
     setStatus('sending');
+    setMessage('');
     data.append('access_key', WEB3FORMS_ACCESS_KEY);
 
     fetch(WEB3FORMS_ENDPOINT, { method: 'POST', body: data })
-      .then((response) => {
-        if (!response.ok) throw new Error(String(response.status));
+      .then((response) => response.json().catch(() => ({})))
+      .then((body: { success?: boolean; message?: string }) => {
+        if (!body.success) {
+          fail(body.message ?? 'No pudimos enviar el mensaje. Intenta de nuevo.');
+          return;
+        }
         setStatus('success');
+        setMessage('');
         form.reset();
         window.hcaptcha?.reset();
       })
-      .catch(() => {
-        setStatus('error');
-        window.hcaptcha?.reset();
-      });
+      .catch(() => fail('No pudimos conectar con el servidor. Intenta de nuevo.'));
   };
 
-  return { status, onSubmit };
+  return { status, message, onSubmit };
 }
