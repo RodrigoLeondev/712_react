@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import {
   HCAPTCHA_FIELD,
   HONEYPOT_FIELD,
+  RECAPTCHA_COMPAT_FIELD,
   WEB3FORMS_ACCESS_KEY,
   WEB3FORMS_ENDPOINT,
 } from '@/infrastructure/lib/constants/forms';
@@ -45,6 +46,7 @@ export function useFormSubmit(): UseFormSubmitResult {
 
     setStatus('sending');
     setMessage('');
+    data.delete(RECAPTCHA_COMPAT_FIELD);
     data.append('access_key', WEB3FORMS_ACCESS_KEY);
 
     fetch(WEB3FORMS_ENDPOINT, { method: 'POST', body: data })

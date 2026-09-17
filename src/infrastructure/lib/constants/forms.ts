@@ -6,7 +6,9 @@ export const HONEYPOT_FIELD = 'botcheck';
 
 export const HCAPTCHA_FIELD = 'h-captcha-response';
 
-export const HCAPTCHA_SCRIPT = 'https://js.hcaptcha.com/1/api.js?render=explicit';
+export const RECAPTCHA_COMPAT_FIELD = 'g-recaptcha-response';
+
+export const HCAPTCHA_SCRIPT = 'https://js.hcaptcha.com/1/api.js?render=explicit&recaptchacompat=off';
 
 export const HCAPTCHA_SITEKEY =
   import.meta.env.VITE_HCAPTCHA_SITEKEY ?? '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
