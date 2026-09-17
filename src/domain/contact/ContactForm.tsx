@@ -1,3 +1,4 @@
+import HCaptchaField from '@/infrastructure/ui/captcha/HCaptchaField';
 import { contactFields } from '@/domain/contact/contactData';
 import { HONEYPOT_FIELD } from '@/infrastructure/lib/constants/forms';
 import { useFormSubmit } from '@/infrastructure/lib/hooks/useFormSubmit';
@@ -55,6 +56,8 @@ export default function ContactForm() {
           </div>
         ))}
       </div>
+
+      <HCaptchaField />
 
       <button type="submit" className={styles.submit} disabled={status === 'sending'}>
         {status === 'sending' ? 'Enviando…' : 'Send Message'}

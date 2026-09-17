@@ -36,8 +36,12 @@ export function useFormSubmit(): UseFormSubmitResult {
         if (!response.ok) throw new Error(String(response.status));
         setStatus('success');
         form.reset();
+        window.hcaptcha?.reset();
       })
-      .catch(() => setStatus('error'));
+      .catch(() => {
+        setStatus('error');
+        window.hcaptcha?.reset();
+      });
   };
 
   return { status, onSubmit };

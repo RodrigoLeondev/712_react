@@ -1,0 +1,9 @@
+.captcha {
+  display: flex;
+  justify-content: flex-start;
+  min-block-size: 78px;
+}
+
+.captcha iframe {
+  max-width: 100%;
+}

@@ -21,7 +21,22 @@
 
 .cornerPill {
   position: absolute;
-  top: -0.8em;
-  left: -0.7em;
+  top: -1em;
+  left: -0.95em;
   z-index: 5;
+}
+
+.cornerPill span {
+  padding-inline: 0.7rem;
+}
+
+@media (min-width: 64rem) {
+  .cornerPill {
+    top: -0.8em;
+    left: -0.7em;
+  }
+
+  .cornerPill span {
+    padding-inline: 1.4rem;
+  }
 }

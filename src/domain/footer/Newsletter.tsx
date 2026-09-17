@@ -1,3 +1,4 @@
+import HCaptchaField from '@/infrastructure/ui/captcha/HCaptchaField';
 import { HONEYPOT_FIELD } from '@/infrastructure/lib/constants/forms';
 import { useFormSubmit } from '@/infrastructure/lib/hooks/useFormSubmit';
 import styles from './Newsletter.module.css';
@@ -22,6 +23,8 @@ export default function Newsletter() {
         autoComplete="off"
         aria-hidden="true"
       />
+
+      <HCaptchaField />
 
       <div className={styles.control}>
         <input

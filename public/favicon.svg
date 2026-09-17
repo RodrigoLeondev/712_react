@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#141414"/>
-  <text x="32" y="43" font-family="Helvetica, Arial, sans-serif" font-size="27" font-weight="700" fill="#f4f3f2" text-anchor="middle">712</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" rx="86" fill="#141414"/>
+  <g transform="translate(19.90 42.40)" fill="#f4f3f2">
+    <path d="M0,105.25v30.64l263.54-.86S96.51,224.11,70.53,402.28h53.22s50.71-256.12,336.52-267.25v-51.97H22.19c-12.26,0-22.19,9.94-22.19,22.19Z"/>
+    <path d="M0,38.3v25.04h460.27V12.87H25.42C11.38,12.87,0,24.26,0,38.3Z"/>
+    <path d="M139.52,402.28h55.99s38.34-179.73,264.76-199.37l.29-52.83s-237.2-7.63-321.04,252.2Z"/>
+    <path d="M212.07,402.28h56.77s39.24-126.02,191.43-126.11v-55.91s-188.32,3.85-248.2,182.02Z"/>
+  </g>
 </svg>
